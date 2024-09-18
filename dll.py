@@ -58,5 +58,5 @@ linked_list.insert(6)
 linked_list.insert(10)
 linked_list.insert(3)
 linked_list.print()
-
+print(1)
 
