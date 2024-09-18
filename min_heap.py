@@ -34,11 +34,6 @@ class MinHeap:
         print()
     
     def extract_min(self):
-        if self.heap_size <= 0:
-            return None  
-        if self.heap_size == 1:
-            self.heap_size -= 1
-            return self.arr[0]
         root = self.arr[0]
         self.arr[0] = self.arr[self.heap_size - 1]
         self.heap_size -= 1
