@@ -1,3 +1,4 @@
+from typing import List
 class node:
     def __init__(self, val):
         self.val = val
@@ -65,7 +66,6 @@ class bst:
         return self.root
     
     def preorder(self):
-        arr=[]
         sta=stack(self.count)
         if self.root==None:
             return 
@@ -74,12 +74,38 @@ class bst:
         while sta.stacksize!=0:
             curr_node=sta.pop()
             print(curr_node.val,end=" ")
-
             if curr_node.right!=None:
                 sta.push(curr_node.right)
             if curr_node.left!=None:
                 sta.push(curr_node.left)
 
+    def inoreder(self):
+        sta=stack(self.count)
+        if self.root==None:
+            return 
+        temp=self.root
+        while temp!=None or sta.stacksize!=0:
+            while temp!=None:
+                sta.push(temp)
+                temp=temp.left
+            temp=sta.pop()
+            print(temp.val,end=" ")
+            temp=temp.right
+
+    def postorder(self):
+        sta=stack(self.count)
+        if self.root==None:
+            return 
+        temp=self.root
+        while temp!=None or sta.stacksize!=0:
+            while temp!=None:
+                sta.push(temp)
+                temp=temp.right
+            temp=sta.pop()
+            print(temp.val,end=" ")
+            temp=temp.left
+
+    
     def search(self,val):
         if self.root==None:
             return None
@@ -102,7 +128,9 @@ ans.insert(5)
 ans.insert(7)
 ans.insert(4)
 ans.insert(25)
-ans.preorder()
+ans.inoreder()
+print()
+ans.postorder()
 
 
 

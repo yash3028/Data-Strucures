@@ -1,5 +1,3 @@
-import math
-from typing import Optional
 class ListNode:
     val=0
     next=None
@@ -8,11 +6,10 @@ class ListNode:
         self.val=val
         self.next=next
         self.prev=prev
-             
+
 class LinkedList:
     def __init__(self,head):
         self.head=head
-
 
     def insert(self, val):
         new_node = ListNode(val)
@@ -43,20 +40,17 @@ class LinkedList:
     def deleteEnd(self):
         if not self.head:
             return
-
         curr = self.head
         if not curr.next:
             self.head = None
             return
-        
         while curr.next:
             curr = curr.next
+        curr.prev.next=None
 linked_list = LinkedList(None)
-
 linked_list.insert(18)
 linked_list.insert(6)
 linked_list.insert(10)
 linked_list.insert(3)
 linked_list.print()
-print(1)
 

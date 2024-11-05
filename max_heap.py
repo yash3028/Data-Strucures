@@ -10,12 +10,12 @@ class Heap:
 
     def heapify(self,i):
         largest = i
-        l = 2 * i + 1
-        r = 2 * i + 2
-        if l < self.heap_size and self.arr[l] > self.arr[largest]:
-            largest = l
-        if r < self.heap_size and self.arr[r] > self.arr[largest]:
-            largest = r
+        left = 2 * i + 1
+        right = 2 * i + 2
+        if left < self.heap_size and self.arr[left] > self.arr[largest]:
+            largest = left
+        if right < self.heap_size and self.arr[right] > self.arr[largest]:
+            largest = right
         if largest != i:
             self.arr[i], self.arr[largest] = self.arr[largest], self.arr[i]
             self.heapify(largest)
@@ -32,10 +32,12 @@ class Heap:
             self.arr[parent], self.arr[i] = self.arr[i], self.arr[parent]
             i = parent
             parent=(i-1)//2
+    
     def print_heap(self):
         for i in range(self.heap_size):
             print(self.arr[i], end=" ")
         print()
+    
     def extract_max(self):
         temp=self.arr[0]
         self.arr[0]=self.arr[self.heap_size-1]
