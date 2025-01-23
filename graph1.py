@@ -4,7 +4,7 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.edges = []
-        self.text = ""
+        self.text = chr(data+97)
 
 class Graph:
     def __init__(self, size):
@@ -25,7 +25,7 @@ class Graph:
         visited.add(start)
         while queue:
             current_node = queue.popleft()
-            print(chr(current_node.data + 97), end=" ")
+            print(current_node.text, end=" ")
             for neighbor in current_node.edges:
                 if neighbor not in visited:
                     visited.add(neighbor)
