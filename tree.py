@@ -1,5 +1,4 @@
 import math
-
 class Node:        
     def __init__(self,val):
         self.val=val
@@ -10,7 +9,6 @@ class Tree:
         self.max_size=max_size
         self.root=None
         self.size=0
-
     def insert(self,val):
         new_node=Node(val)
         if self.root==None:
